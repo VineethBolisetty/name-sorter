@@ -23,6 +23,12 @@ namespace NameSorter.Business.Interfaces
         void WriteNamesToFile(string filePath, IEnumerable<IName> names);
 
         /// <summary>
+        /// Writes the names to console.
+        /// </summary>
+        /// <param name="names">Names.</param>
+        void WriteNamesToConsole(IEnumerable<IName> names);
+
+        /// <summary>
         /// Sorts the names by last name and then by given names.
         /// </summary>
         /// <returns>The names sorted by last name and then by given names.</returns>

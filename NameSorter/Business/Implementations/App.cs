@@ -57,6 +57,17 @@ namespace NameSorter.Business.Implementations
         }
 
         /// <summary>
+        /// Writes the names to console.
+        /// </summary>
+        /// <param name="names">Names.</param>
+        public void WriteNamesToConsole(IEnumerable<IName> names)
+        {
+            names
+                .ToList()
+                .ForEach(name => _consoleService.WriteLine(name.ToString()));
+        }
+
+        /// <summary>
         /// Sorts the names by last name and then by given names.
         /// </summary>
         /// <returns>The names sorted by last name and then by given names.</returns>
@@ -77,6 +88,7 @@ namespace NameSorter.Business.Implementations
             var unsortedNames = ReadNamesFromFile(unsortedNamesFilePath);
             var sortedNames = SortNamesByLastNameAndThenByGivenNames(unsortedNames);
             WriteNamesToFile(sortedNamesFilePath, sortedNames);
+            WriteNamesToConsole(sortedNames);
         }
     }
 }
